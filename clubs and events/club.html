@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>College Clubs & Events</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+<body>
+
+  <!-- 🔹 Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">🎓 CST Clubs & Events</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto text-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#events">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#clubs">Clubs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#success-stories">Success Stories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 🔹 Carousel Section -->
+  <div id="eventCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="event1.jpg" class="d-block w-100 event-slide" 
+             alt="Event 1"
+             data-title="Tech Week"
+             data-desc="Explore innovation through workshops, competitions, and guest speakers."
+             data-date="March 20, 2025"
+             data-location="Team Work Hall"
+             data-bs-toggle="modal"
+             data-bs-target="#eventDetailModal"
+        >
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+          <h5>Tech Week</h5>
+          <p>Explore innovation through workshops, competitions, and guest speakers.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="event2.jpg" class="d-block w-100 event-slide" 
+             alt="Event 2"
+             data-title="Cultural Night"
+             data-desc="Experience diverse traditions, music, and performances from around the world."
+             data-date="March 30, 2025"
+             data-location="Convention Hall"
+             data-bs-toggle="modal"
+             data-bs-target="#eventDetailModal"
+        >
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 p-3 rounded">
+          <h5>Cultural Night</h5>
+          <p>Experience diverse traditions, music, and performances from around the world.</p>
+        </div>
+      </div>
+      <!-- Add more carousel items here -->
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#eventCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#eventCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+  
+  <!-- 🔹 Event Detail Modal -->
+  <div class="modal fade" id="eventDetailModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="eventDetailLabel" class="modal-title">Event Title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body row">
+          <div class="col-md-6">
+            <img id="eventModalImage" src="" class="img-fluid rounded" />
+          </div>
+          <div class="col-md-6">
+            <p id="eventModalDescription"></p>
+            <p><strong>Date:</strong> <span id="eventModalDate"></span></p>
+            <p><strong>Location:</strong> <span id="eventModalLocation"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Club Detail Modal -->
+<div class="modal fade" id="clubDetailModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 id="clubDetailLabel" class="modal-title">Club Name</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body row">
+        <div class="col-md-6">
+          <img id="clubModalImage" src="" class="img-fluid rounded" />
+        </div>
+        <div class="col-md-6">
+          <p id="clubModalDescription"></p>
+          <p><strong>Leader:</strong> <span id="clubLeaderName"></span></p>
+          <p><strong>Phone:</strong> <a id="clubLeaderPhone" href="tel:"></a></p>
+          <a id="clubWhatsappLink" class="btn btn-success" target="_blank">Join WhatsApp</a>
+
+          <hr />
+          <form id="clubRegistrationForm">
+            <input class="form-control mb-2" type="text" placeholder="Your Name" required />
+            <input class="form-control mb-2" type="email" placeholder="Your Email" required />
+            <button class="btn btn-primary" type="submit">Register</button>
+          </form>
+          <div id="formMessage" class="alert alert-success mt-2 d-none">
+            Registration successful!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🔹 Clubs Section -->
+<div class="container mt-5" id="clubs">
+  <h2 class="text-center mb-4">Explore Our 13 Clubs</h2>
+  <div class="row" id="clubsContainer">
+      <!-- Club cards will be inserted here by JavaScript -->
+    </div>
+  </div>
+
+  <section id="success-stories" class="container py-5">
+    <h2 class="text-center mb-5 fw-bold">🌟 Club Success Stories</h2>
+  
+    <!-- Story 1 -->
+    <div class="mb-5 p-4 rounded bg-primary-subtle shadow-sm border" data-aos="fade-right">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h3 class="fw-bold">ACM Club Wins National Tech Fest</h3>
+          <p>The ACM Club represented our college in the Bhutan TechFest 2024 and won 1st prize in autonomous robot design. This achievement inspired many students to pursue innovation and technology.</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="ACM.jpg" alt="Robotics Club" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  
+    <!-- Story 2 -->
+    <div class="mb-5 p-4 rounded bg-success-subtle shadow-sm border" data-aos="fade-left">
+      <div class="row align-items-center flex-md-row-reverse">
+        <div class="col-md-6">
+          <h3 class="fw-bold">Cultural Club Hosts Bhutanese Heritage Week</h3>
+          <p>The Cultural Club organized a full week of performances, exhibitions, and traditional art workshops. Over 800 students participated, bringing together culture, history, and fun.</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="Culture.jpg" alt="Cultural Event" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  
+    <!-- Story 3 -->
+    <div class="mb-5 p-4 rounded bg-warning-subtle shadow-sm border" data-aos="fade-up">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h3 class="fw-bold">Coding Club Builds Mental Health App</h3>
+          <p>In collaboration with the health center, the Coding Club launched a web app that provides mental wellness tips and schedules reminders. This was a huge step in promoting student well-being using technology.</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="mental.jpg" alt="Mental Health App" class="img-fluid rounded shadow">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔹 Bootstrap JS & Custom Script -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+
+  <footer class="bg-dark text-white pt-4 pb-2 mt-5" id="contact">
+    <div class="container text-center text-md-start">
+      <div class="row">
+        <!-- About -->
+        <div class="col-md-6 mb-3">
+          <h5 class="fw-bold">College Clubs & Events</h5>
+          <p>Stay updated on all college activities, join clubs, and never miss an event again.</p>
+        </div>
+  
+        <!-- Quick Links -->
+        <div class="col-md-3 mb-3">
+          <h6 class="fw-bold">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="#events" class="text-white text-decoration-none">Events</a></li>
+            <li><a href="#clubs" class="text-white text-decoration-none">Clubs</a></li>
+            <li><a href="#success-stories" class="text-white text-decoration-none">Stories</a></li>
+          </ul>
+        </div>
+  
+        <!-- Social -->
+        <div class="col-md-3 mb-3">
+          <h6 class="fw-bold">Follow Us</h6>
+          <a href="https://facebook.com" target="_blank" class="text-white me-3 fs-5">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" class="text-white me-3 fs-5">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://wa.me/yourgroupid" target="_blank" class="text-white fs-5">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="text-center mt-3">
+      <small>&copy; 2025 College of Science and Technology. All Rights Reserved.</small>
+    </div>
+  </footer>
+
+  <!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>
